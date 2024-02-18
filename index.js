@@ -4,6 +4,16 @@ function refresh(response){
   let theCity=document.querySelector("#city");
   theCity.innerHTML= response.data.city
   temp.innerHTML=Math.round(temperature);
+  let theInfo=document.querySelector("#info");
+  theInfo.innerHTML=response.data.condition.description;
+  
+
+  let theHumidity=document.querySelector("#Humidity");
+  theHumidity.innerHTML=`${response.data.temperature.humidity}%`;
+  
+  
+  let theSpeed=document.querySelector("#speed");
+  theSpeed.innerHTML=`${response.data.wind.speed}km/h`;
 }
 
 
@@ -31,5 +41,5 @@ function search (event){
 
 let form=document.querySelector("#input-search");
 form.addEventListener("submit", search);
- 
-searchCity("paris");
+
+searchCity("Kabul");
