@@ -68,24 +68,26 @@ header {
 
 strong {
   color: #f65282;
+
+}
+
+.current-temperature-value {
+  display: flex;
 }
 
 .current-temperature-icon {
-  position: relative;
-  top: -2px;
-  font-size: 40px;
-  right: -8px;
+
+  width: 88px;
+  height: 88px;
 }
 
 #value {
-  font-size: 50px;
+  font-size: 77px;
+  line-height: 88px;
   font-weight: bold;
 }
 
 .the-weather-unit {
-  font-size: 30px;
-  position: relative;
-  top: -20px;
-
-
+  margin-top: 6px;
+  font-size: 28px;
 }

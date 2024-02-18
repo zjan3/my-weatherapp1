@@ -15,6 +15,8 @@ function refresh(response){
   let theSpeed=document.querySelector("#speed");
   theSpeed.innerHTML=`${response.data.wind.speed}km/h`;
 
+   let iconElement = document.querySelector("#icon")
+iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="current-temperature-icon" />`;
   
 }
 
@@ -77,4 +79,4 @@ function formatDate(date) {
 let currentDateELement = document.querySelector("#time");
 let currentDate = new Date();
 
-currentDateELement.innerHTML = formatDate(currentDate);
+currentDateELement.innerHTML = formatDate(currentDate);z
