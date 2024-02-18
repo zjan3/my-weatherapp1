@@ -1,11 +1,91 @@
 body {
   background-color: #eeeeee;
+
+  font-family: "Protest Riot", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
 }
-.app {
+
+#app {
   background: white;
-  max-width: 600px;
+  max-width: 530px;
   margin: 30px auto;
   box-shadow: 0 30px 40px rgba(65, 50, 100, 0.08);
   border-radius: 16px;
-  padding: 30px;
+  padding: 70px;
+}
+
+#input-text {
+  background-color: #eeeeee;
+  border: none;
+  border-radius: 16px;
+  padding: 11px;
+
+
+}
+
+
+
+#search-button {
+  background-color: #675299;
+  border: none;
+  border-radius: 16px;
+  padding: 11px;
+}
+
+footer {
+  border-top: 1px solid #eeeeee;
+  padding: 20px 0 0 0;
+  text-align: center;
+  color: #1e1c1c;
+  font-size: 14px;
+}
+
+a {
+  color: #675299;
+}
+
+#the-app {
+  display: flex;
+  justify-content: space-between;
+}
+
+main {
+  padding: 20px 0;
+
+
+}
+
+#city {
+  margin: 0;
+}
+
+header {
+  border-bottom: 1px solid #f9f7fe;
+  padding-bottom: 30px;
+}
+
+strong {
+  color: #f65282;
+}
+
+.current-temperature-icon {
+  position: relative;
+  top: -4px;
+  font-size: 40px;
+  right: -8px;
+}
+
+#value {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.the-weather-unit {
+  font-size: 30px;
+  position: relative;
+  top: -20px;
+
+
 }

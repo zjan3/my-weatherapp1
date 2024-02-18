@@ -5,24 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather app</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Protest+Riot&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <div class="app">
+    <div id="app">
       <header>
-        <form>
-          <input type="text" placeholder="Enter a city" required />
-          <input type="submit" value="search" />
+        <form id="input-search">
+          <input
+            type="text"
+            placeholder="Enter a city"
+            required
+            id="input-text"
+          />
+          <input type="submit" value="search" id="search-button" />
         </form>
       </header>
-      <h1>hello world</h1>
       <main>
-        <p>
-          Saturday 17:28, overcast clouds
-          <br />
-          Humidity: 83%, Wind: 2.68km/h
-        </p>
-        12°C
+        <div id="the-app">
+          <div>
+            <h1 id="city"></h1>
+
+            <p clas="current-details">
+              Saturday 17:28, overcast clouds
+              <br />
+              Humidity:<strong> 83%</strong>, Wind:<strong> 2.68km/h</strong>
+            </p>
+          </div>
+
+          <span class="current-temperature-value" id="temp">
+            <span class="current-temperature-icon">☀️</span>
+            <span id="value"></span><span class="the-weather-unit">°C</span>
+          </span>
+        </div>
       </main>
+
       <footer>
         This project was coded by
         <a href="https://github.com/zjan3" target="_blank">z jan</a> hosted on
@@ -35,5 +57,6 @@
         >
       </footer>
     </div>
+    <script src="index.js"></script>
   </body>
 </html>
