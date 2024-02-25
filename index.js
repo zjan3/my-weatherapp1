@@ -17,6 +17,8 @@ function refresh(response){
 
    let iconElement = document.querySelector("#icon")
 iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="current-temperature-icon" />`;
+ 
+getForecast(response.data);
   
 }
 
@@ -47,7 +49,7 @@ function search (event){
 let form=document.querySelector("#input-search");
 form.addEventListener("submit", search);
 
-searchCity("Kabul");
+
 
 function formatDate(date) {
   let minutes = date.getMinutes();
@@ -79,4 +81,34 @@ function formatDate(date) {
 let currentDateELement = document.querySelector("#time");
 let currentDate = new Date();
 
-currentDateELement.innerHTML = formatDate(currentDate);z
+currentDateELement.innerHTML = formatDate(currentDate);
+
+function theForecast(response){
+  console.log(response).data
+let forecast=document.querySelector("#forecast");
+let forecasthtml="";
+
+ response.data.daily.forEach(function(day){
+      forecasthtml= forecasthtml+
+      `
+<dive class="weather-forecast">
+              <div class="the-date">thue</div>
+              <div id="icon"><img src="" />🌤️</div>
+            </div>
+            <div class="the-weather-temp">${Math.round(day.temperature.maximum)}<span class="temp"> 12</span></div>
+          </dive>`;});
+ forecast.innerHTML=forecasthtml;
+        }
+        
+           
+    
+
+       function getForecast(city){
+        let apikey="4223558d0f0fb6t0od6867bb93f18a3d";
+        let apiUrl=`https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+        axios(apiUrl).then(theForecast);
+
+       }
+        
+       searchCity("Kabul");
+      

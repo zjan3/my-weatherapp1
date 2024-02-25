@@ -12,7 +12,7 @@ body {
   max-width: 530px;
   margin: 30px auto;
   box-shadow: 0 30px 40px rgba(65, 50, 100, 0.08);
-  border-radius: 16px;
+  border-radius: 40px;
   padding: 70px;
 }
 
@@ -90,4 +90,30 @@ strong {
 .the-weather-unit {
   margin-top: 6px;
   font-size: 28px;
+}
+
+.weather-forecast {
+  margin-top: 18px;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.the-date {
+
+  font-size: 14px;
+  color: #1e1c1c;
+  opacity: 0.5;
+}
+
+.the-weather-temp {
+  font-size: 15px;
+  margin-top: 30px;
+
+
+}
+
+.temp {
+  opacity: 0.5;
 }
