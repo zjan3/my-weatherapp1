@@ -16,9 +16,9 @@ function refresh(response){
   theSpeed.innerHTML=`${response.data.wind.speed}km/h`;
 
    let iconElement = document.querySelector("#icon")
-iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="current-temperature-icon" />`;
+   iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="current-temperature-icon" />`;
  
-getForecast(response.data);
+  getForecast(response.data.city);
   
 }
 
@@ -88,15 +88,15 @@ function theForecast(response){
 let forecast=document.querySelector("#forecast");
 let forecasthtml="";
 
- response.data.daily.forEach(function(day){
+response.data.daily.forEach(function(day){
       forecasthtml= forecasthtml+
       `
 <dive class="weather-forecast">
-              <div class="the-date">thue</div>
+              <div class="the-date">${day}</div>
               <div id="icon"><img src="" />🌤️</div>
             </div>
             <div class="the-weather-temp">${Math.round(day.temperature.maximum)}<span class="temp"> 12</span></div>
-          </dive>`;});
+          </div>`;});
  forecast.innerHTML=forecasthtml;
         }
         
