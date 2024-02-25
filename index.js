@@ -18,7 +18,8 @@ function refresh(response){
    let iconElement = document.querySelector("#icon")
    iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="current-temperature-icon" />`;
  
-  getForecast(response.data.city);
+ 
+    getForecast(response.data.city);
   
 }
 
@@ -83,32 +84,55 @@ let currentDate = new Date();
 
 currentDateELement.innerHTML = formatDate(currentDate);
 
-function theForecast(response){
-  console.log(response).data
-let forecast=document.querySelector("#forecast");
-let forecasthtml="";
 
-response.data.daily.forEach(function(day){
-      forecasthtml= forecasthtml+
-      `
-<dive class="weather-forecast">
-              <div class="the-date">${day}</div>
-              <div id="icon"><img src="" />🌤️</div>
-            </div>
-            <div class="the-weather-temp">${Math.round(day.temperature.maximum)}<span class="temp"> 12</span></div>
-          </div>`;});
- forecast.innerHTML=forecasthtml;
-        }
-        
            
     
 
        function getForecast(city){
-        let apikey="4223558d0f0fb6t0od6867bb93f18a3d";
+        let apiKey="4223558d0f0fb6t0od6867bb93f18a3d";
         let apiUrl=`https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
-        axios(apiUrl).then(theForecast);
+     axios(apiUrl).then(displayForecast);}
 
-       }
+     
+   function displayForecast(response) {
+    console.log(response.data);
+
+    let forecastHtml = "";
+
+     response.data.daily.forEach(function (day, index) {
+    if (index < 5) {
+      forecastHtml =
+        forecastHtml +
+   `<div class="weather-forecast-day">
+        <div class="weather-forecast-date">${formatDay(day.time)}</div>
+
+        <img src="${day.condition.icon_url}" class="icon" />
+        <div class="weather-forecast-temperatures">
+          <div class="the-weather-temp">
+            <strong>${Math.round(day.temperature.maximum)}º</strong>
+          </div>
+          <div class="the-weather-temp">${Math.round(
+            day.temperature.minimum
+          )}º</div>
+        </div>
+      </div>
+    `;
+    }
+  });
+
+    
+    let forecast = document.querySelector("#forecast");
+    forecast.innerHTML = forecastHtml;}
         
-       searchCity("Kabul");
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[date.getDay()];
+}
+ 
+ 
+
+searchCity("Kabul");
+      
       
